@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>turtlebot3_node</name>
+  <name>nucky_node</name>
   <version>2.1.2</version>
   <description>
     TurtleBot3 driver node that include diff drive controller, odometry and tf node
@@ -25,7 +25,9 @@
   <depend>std_srvs</depend>
   <depend>tf2</depend>
   <depend>tf2_ros</depend>
-  <depend>turtlebot3_msgs</depend>
+  <depend>nucky_msgs</depend>
+  <depend>lino_msgs</depend>
+
   <export>
     <build_type>ament_cmake</build_type>
   </export>

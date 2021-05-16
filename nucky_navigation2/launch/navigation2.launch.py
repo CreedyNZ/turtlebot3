@@ -36,11 +36,11 @@ def generate_launch_description():
             'map',
             'turtlebot3_world.yaml'))
 
-    param_file_name = TURTLEBOT3_MODEL + '.yaml'
+    param_file_name = NUCKY_MODEL + '.yaml'
     param_dir = LaunchConfiguration(
         'params_file',
         default=os.path.join(
-            get_package_share_directory('turtlebot3_navigation2'),
+            get_package_share_directory('nucky_navigation2'),
             'param',
             param_file_name))
 

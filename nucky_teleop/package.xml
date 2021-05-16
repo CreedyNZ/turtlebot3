@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>turtlebot3_teleop</name>
+  <name>nucky_teleop</name>
   <version>2.1.2</version>
   <description>
     Teleoperation node using keyboard for TurtleBot3.
