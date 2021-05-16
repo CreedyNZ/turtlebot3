@@ -36,9 +36,9 @@ def generate_launch_description():
     tb3_param_dir = LaunchConfiguration(
         'tb3_param_dir',
         default=os.path.join(
-            get_package_share_directory('turtlebot3_bringup'),
+            get_package_share_directory('nucky_bringup'),
             'param',
-            TURTLEBOT3_MODEL + '.yaml'))
+            NUCKY_MODEL + '.yaml'))
 
     lidar_pkg_dir = LaunchConfiguration(
         'lidar_pkg_dir',
@@ -60,11 +60,11 @@ def generate_launch_description():
         DeclareLaunchArgument(
             'tb3_param_dir',
             default_value=tb3_param_dir,
-            description='Full path to turtlebot3 parameter file to load'),
+            description='Full path to nucky parameter file to load'),
 
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
-                [ThisLaunchFileDir(), '/turtlebot3_state_publisher.launch.py']),
+                [ThisLaunchFileDir(), '/nucky_state_publisher.launch.py']),
             launch_arguments={'use_sim_time': use_sim_time}.items(),
         ),
 
@@ -74,8 +74,8 @@ def generate_launch_description():
         ),
 
         Node(
-            package='turtlebot3_node',
-            executable='turtlebot3_ros',
+            package='nucky_node',
+            executable='nucky_ros',
             parameters=[tb3_param_dir],
             arguments=['-i', usb_port],
             output='screen'),

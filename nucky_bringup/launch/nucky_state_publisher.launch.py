@@ -27,15 +27,15 @@ from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
-    TURTLEBOT3_MODEL = os.environ['TURTLEBOT3_MODEL']
+    NUCKY_MODEL = os.environ['NUCKY_MODEL']
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
-    urdf_file_name = 'turtlebot3_' + TURTLEBOT3_MODEL + '.urdf'
+    urdf_file_name = 'nucky_' + NUCKY_MODEL + '.urdf'
 
     print("urdf_file_name : {}".format(urdf_file_name))
 
     urdf = os.path.join(
-        get_package_share_directory('turtlebot3_description'),
+        get_package_share_directory('nucky_description'),
         'urdf',
         urdf_file_name)
 
