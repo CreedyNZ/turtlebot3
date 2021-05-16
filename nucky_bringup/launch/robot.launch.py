@@ -29,7 +29,7 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    TURTLEBOT3_MODEL = os.environ['TURTLEBOT3_MODEL']
+    NUCKY_MODEL = os.environ['NUCKY_MODEL']
 
     usb_port = LaunchConfiguration('usb_port', default='/dev/ttyACM0')
 
