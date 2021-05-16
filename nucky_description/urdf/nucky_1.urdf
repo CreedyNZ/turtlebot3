@@ -1,0 +1,268 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="Nucky">
+  <material name="black">
+    <color rgba="0.0 0.0 0.0 1.0"/>
+  </material>
+  <material name="blue">
+    <color rgba="0.203125 0.23828125 0.28515625 1.0"/>
+  </material>
+  <material name="green">
+    <color rgba="0.0 0.8 0.0 1.0"/>
+  </material>
+  <material name="grey">
+    <color rgba="0.2 0.2 0.2 1.0"/>
+  </material>
+  <material name="orange">
+    <color rgba="1.0 0.423529411765 0.0392156862745 1.0"/>
+  </material>
+  <material name="yellow">
+    <color rgba="0.929 0.929 0.0 1.0"/>
+  </material>
+  <material name="brown">
+    <color rgba="0.870588235294 0.811764705882 0.764705882353 1.0"/>
+  </material>
+  <material name="red">
+    <color rgba="0.80078125 0.12890625 0.1328125 1.0"/>
+  </material>
+  <material name="white">
+    <color rgba="1.0 1.0 1.0 1.0"/>
+  </material>
+  
+  <xacro:property name="wheel_separation" value="0.15" />
+  <xacro:property name="wheel_radius" value="0.074" />
+  <xacro:property name="wheel_width" value="0.03" />
+  <xacro:property name="body_height" value="0.02" />
+  <xacro:property name="body_width" value="0.3" />
+  <xacro:property name="body_length" value="0.6" />
+  <xacro:property name="platform_height" value="0.170" />
+  <xacro:property name="tower_height" value="0.210" />
+  <xacro:property name="bumper" value="0.05" />
+  
+  <xacro:include filename="$(find nucky_description)/urdf/_d435.urdf" />
+  <xacro:sensor_d435 parent="chassis">
+  <origin xyz="0.202145 0.000633256 0.2594" rpy="-6.31089e-30 -5.1276e-30 5.55112e-17" />
+  </xacro:sensor_d435>
+ 
+<link name="base_footprint"></link>
+<joint name="base_foot_to_link" type="fixed">
+<parent link="base_footprint"/>
+<child link="base_link" />
+<origin rpy="0.0 0 0" xyz="0 0 0"/>
+</joint>
+<link name="base_link"></link>
+<joint name="base_link_to_chassis" type="fixed">
+<parent link="base_link"/>
+<child link="chassis" />
+<origin rpy="0.0 0 0" xyz="0 0 0"/>
+</joint>
+
+
+<link name="chassis">
+<visual>
+<origin xyz="0.0733651 -0.173799 0.0357189" rpy="-2.87419e-32 -1.98876e-16 1.5708" />
+<geometry>
+<mesh filename="package://nucky_description/meshes/wheel_left.stl"/>
+</geometry>
+<material name="wheel_left_material">
+<color rgba="0.294118 0.294118 0.294118 1.0"/>
+</material>
+</visual>
+<visual>
+<origin xyz="0.172464 -0.0243667 0.266843" rpy="6.31089e-30 5.1276e-30 -3.14159" />
+<geometry>
+<mesh filename="package://nucky_description/meshes/camera_bracket.stl"/>
+</geometry>
+<material name="camera_bracket_material">
+<color rgba="0.701961 0.701961 0.701961 1.0"/>
+</material>
+</visual>
+<visual>
+<origin xyz="-0.0650879 -0.00577377 0.354" rpy="0 -0 -3.14159" />
+<geometry>
+<mesh filename="package://nucky_description/meshes/lidarbase.stl"/>
+</geometry>
+<material name="lidarbase_material">
+<color rgba="0.529412 0.568627 0.6 1.0"/>
+</material>
+</visual>
+<visual>
+<origin xyz="0.155945 0.0256318 0.143099" rpy="3.14159 -0 -1.5708" />
+<geometry>
+<mesh filename="package://nucky_description/meshes/front_stand.stl"/>
+</geometry>
+<material name="front_stand_material">
+<color rgba="0.6 0.6 0.6 1.0"/>
+</material>
+</visual>
+<visual>
+<origin xyz="0.202145 0.000633256 0.2594" rpy="-6.31089e-30 -5.1276e-30 5.55112e-17" />
+<geometry>
+<mesh filename="package://nucky_description/meshes/camera_mnt.stl"/>
+</geometry>
+<material name="camera_mnt_material">
+<color rgba="1 0 0 1.0"/>
+</material>
+</visual>
+<visual>
+<origin xyz="-0.16476 -0.0103882 0.005" rpy="-3.14159 1.5708 0" />
+<geometry>
+<mesh filename="package://nucky_description/meshes/part_1.stl"/>
+</geometry>
+<material name="part_1_material">
+<color rgba="0.615686 0.811765 0.929412 1.0"/>
+</material>
+</visual>
+<visual>
+<origin xyz="-0.052655 -0.0214647 0.228193" rpy="0 -0 3.14159" />
+<geometry>
+<mesh filename="package://nucky_description/meshes/imu_base.stl"/>
+</geometry>
+<material name="imu_base_material">
+<color rgba="0.615686 0.811765 0.929412 1.0"/>
+</material>
+</visual>
+<visual>
+<origin xyz="-0.0474961 -0.00146472 0.354" rpy="0 -0 3.88578e-16" />
+<geometry>
+<mesh filename="package://nucky_description/meshes/camera_mnt.stl"/>
+</geometry>
+<material name="camera_mnt_material">
+<color rgba="1 0 0 1.0"/>
+</material>
+</visual>
+<visual>
+<origin xyz="0.0733651 0.171274 0.0357189" rpy="-1.3123e-16 1.98876e-16 -1.5708" />
+<geometry>
+<mesh filename="package://nucky_description/meshes/wheel_left.stl"/>
+</geometry>
+<material name="wheel_left_material">
+<color rgba="0.294118 0.294118 0.294118 1.0"/>
+</material>
+</visual>
+<visual>
+<origin xyz="0.168445 0.000633256 0.335" rpy="3.14159 -0 1.5708" />
+<geometry>
+<mesh filename="package://nucky_description/meshes/front_riser.stl"/>
+</geometry>
+<material name="front_riser_material">
+<color rgba="0.792157 0.819608 0.933333 1.0"/>
+</material>
+</visual>
+<visual>
+<origin xyz="0.0141039 -0.00146472 0.24545" rpy="0 -0 -2.77556e-16" />
+<geometry>
+<mesh filename="package://nucky_description/meshes/camera_mnt.stl"/>
+</geometry>
+<material name="camera_mnt_material">
+<color rgba="1 0 0 1.0"/>
+</material>
+</visual>
+<visual>
+<origin xyz="-0.0312045 -0.00136674 -1.42575e-18" rpy="6.12323e-17 1.98876e-16 -1.5708" />
+<geometry>
+<mesh filename="package://nucky_description/meshes/chassis.stl"/>
+</geometry>
+<material name="chassis_material">
+<color rgba="0.713725 0.760784 0.8 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0 0 0" rpy="0 -0 0" />
+<geometry>
+<mesh filename="package://nucky_description/meshes/chassis_collision.stl"/>
+</geometry>
+<material name="chassis_material">
+<color rgba="0.5 0.5 0.5 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0877545 -0.0013718 0.0804895" rpy="0 0 0"/>
+<mass value="36.7334" />
+<inertia ixx="0.382918" ixy="2.04947e-05"  ixz="-0.0868428" iyy="0.605143" iyz="-8.9498e-07" izz="0.711412" />
+</inertial>
+</link>
+   
+<link name="ultrasonicFC">
+    <visual>
+      <geometry>
+        <cylinder length="0.01" radius="0.04"/>
+      </geometry>
+      <material name="green"/>
+      <origin xyz="0 0 0.0"/>
+    </visual>
+</link>
+ 
+<joint name="chassis_to_ultraFC" type="fixed">
+    <parent link="chassis"/>
+    <child link="ultrasonicFC"/>
+    <origin xyz="0.26 0 0" rpy="0 0 0" />
+</joint>   
+
+<link name="lidarFR">
+    <visual>
+      <geometry>
+        <cylinder length="0.01" radius="0.04"/>
+      </geometry>
+      <material name="red"/>
+      <origin xyz="0 0 0.0"/>
+    </visual>
+</link>
+ 
+<joint name="chassis_to_lidarFR" type="fixed">
+    <parent link="chassis"/>
+    <child link="lidarFR"/>
+    <origin xyz="0.256 0.13 0.03" rpy="0 0 0.6" />
+</joint>      
+   
+<link name="lidarFL">
+    <visual>
+      <geometry>
+        <cylinder length="0.01" radius="0.04"/>
+      </geometry>
+      <material name="red"/>
+      <origin xyz="0 0 0.0"/>
+    </visual>
+</link>
+ 
+<joint name="chassis_to_lidarFL" type="fixed">
+    <parent link="chassis"/>
+    <child link="lidarFL"/>
+    <origin xyz="0.256 -0.13 0.03" rpy="0 0 -0.6" />
+</joint>
+   
+  <link name="laser">
+      <visual>
+        <geometry>
+          <cylinder length="0.03" radius="0.04"/>
+        </geometry>
+        <material name="black"/>
+        <origin xyz="0 0 0.0"/>
+      </visual>
+   </link>
+   
+   <joint name="chassis_to_laser" type="fixed">
+      <parent link="chassis"/>
+      <child link="laser"/>
+      <origin xyz="-0.0474961 -0.00146472 0.354" rpy="0 -0 3.88578e-16" />
+   </joint>
+    
+   <link name="imu_link">
+      <visual>
+        <geometry>
+          <box size="0.02 0.03 0.015"/>
+        </geometry>
+          <material name="red"/>
+      </visual>
+   </link>
+   
+  <joint name="imu_to chassis" type="fixed">
+      <parent link="chassis"/>
+      <child link="imu_link"/>
+      <origin xyz="0.0141039 -0.00146472 0.24545" rpy="0 -0 -2.77556e-16" />
+   </joint>
+   
+
+   
+   
+   
+</robot>
