@@ -39,10 +39,10 @@ def generate_launch_description():
             get_package_share_directory('nucky_bringup'),
             'param',
             NUCKY_MODEL + '.yaml'))
-
-    lidar_pkg_dir = LaunchConfiguration(
-        'lidar_pkg_dir',
-        default=os.path.join(get_package_share_directory('hls_lfcd_lds_driver'), 'launch'))
+#
+#    lidar_pkg_dir = LaunchConfiguration(
+#        'lidar_pkg_dir',
+#        default=os.path.join(get_package_share_directory('rplidar_ros'), 'launch'))
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
 
@@ -67,16 +67,32 @@ def generate_launch_description():
                 [ThisLaunchFileDir(), '/nucky_state_publisher.launch.py']),
             launch_arguments={'use_sim_time': use_sim_time}.items(),
         ),
-
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([lidar_pkg_dir, '/hlds_laser.launch.py']),
-            launch_arguments={'port': '/dev/ttyUSB0', 'frame_id': 'base_scan'}.items(),
+        
+ 
+#
+#        IncludeLaunchDescription(
+#            PythonLaunchDescriptionSource([rplidar_ros2, '/rplidar.launch.py']),
+#            launch_arguments={'port': '/dev/lidarlaser', 'frame_id': 'base_scan'}.items(),
+#        )
+         Node(
+            name='rplidar_composition',
+            package='rplidar_ros',
+            executable='rplidar_composition',
+            output='screen',
+            parameters=[{
+                'serial_port': '/dev/linolidar',
+                'serial_baudrate': 115200,  # A1 / A2
+                # 'serial_baudrate': 256000, # A3
+                'frame_id': 'laser',
+                'inverted': False,
+                'angle_compensate': True,
+            }],
         ),
 
         Node(
-            package='nucky_node',
-            executable='nucky_ros',
-            parameters=[tb3_param_dir],
-            arguments=['-i', usb_port],
-            output='screen'),
+            name='base_footprint_to_base_link',
+            package = "tf2_ros", 
+            executable = "static_transform_publisher",
+            arguments = ["0", "0", "0", "0", "0", "0", "base_footprint", "base_link"]
+        )
     ])
