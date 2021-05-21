@@ -1,7 +1,7 @@
 from setuptools import find_packages
 from setuptools import setup
 
-package_name = 'turtlebot3_teleop'
+package_name = 'nucky_teleop'
 
 setup(
     name=package_name,

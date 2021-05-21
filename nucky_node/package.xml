@@ -14,7 +14,6 @@
   <author email="thlim@robotis.com">Darby Lim</author>
   <author email="pyo@robotis.com">Pyo</author>
   <buildtool_depend>ament_cmake</buildtool_depend>
-  <depend>dynamixel_sdk</depend>
   <depend>geometry_msgs</depend>
   <depend>message_filters</depend>
   <depend>nav_msgs</depend>
@@ -25,9 +24,7 @@
   <depend>std_srvs</depend>
   <depend>tf2</depend>
   <depend>tf2_ros</depend>
-  <depend>nucky_msgs</depend>
-  <depend>lino_msgs</depend>
-
+  <depend>turtlebot3_msgs</depend>
   <export>
     <build_type>ament_cmake</build_type>
   </export>

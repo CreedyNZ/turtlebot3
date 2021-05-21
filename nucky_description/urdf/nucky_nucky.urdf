@@ -38,7 +38,7 @@
   <xacro:property name="tower_height" value="0.210" />
   <xacro:property name="bumper" value="0.05" />
   
-  <xacro:include filename="package://nucky_description/urdf/_d435.urdf" />
+  <xacro:include filename="$(find nucky_description)/urdf/_d435.urdf" />
   <xacro:sensor_d435 parent="realcammount">
   <origin xyz="0.202145 0.000633256 0.2594" rpy="-6.31089e-30 -5.1276e-30 5.55112e-17" />
   </xacro:sensor_d435>
@@ -274,7 +274,7 @@
 <joint name="chassis_to_realcammount" type="fixed">
     <parent link="chassis"/>
     <child link="realcammount"/>
-    <origin xyz="0.6 0 0" rpy="0 0 0" />
+    <origin xyz="0 0 0.4" rpy="0 0 0" />
 </joint>  
    
    
