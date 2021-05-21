@@ -22,7 +22,6 @@
   <exec_depend>nucky_navigation2</exec_depend>
   <exec_depend>nucky_node</exec_depend>
   <exec_depend>nucky_teleop</exec_depend>
-  <exec_depend>lino_msgs</exec_depend>
   <export>
     <build_type>ament_cmake</build_type>
   </export>
